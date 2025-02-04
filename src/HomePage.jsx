@@ -2,7 +2,8 @@ import React from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
-const HomePage = () => {
+
+const HomePage = ({formData}) => {
     const navigate = useNavigate();
    
     
@@ -13,6 +14,8 @@ const HomePage = () => {
 
        
         <button onClick={()=>{navigate('/form')}}> Start Building </button>
+
+
         
     </div>
   )

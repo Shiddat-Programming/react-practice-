@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
+import { useResume } from './ResumeProvider';
 
 
 
-const ResumeForm = ({setFormData}) => {
+
+const ResumeForm = () => {
+    const { setFormData } = useResume();
     const navigate = useNavigate();
 
     const [ form , setForm ] = useState({
@@ -19,14 +22,20 @@ const handleChange = ((e)=>{
 
     setForm({
         ...form, [e.target.name] : e.target.value
+    
     })
+    
 })
 
 
 
+
+
 const handleSubmit = ((e)=>{
-   e.preventDefault()
-    setFormData(form)
+   e.preventDefault() // to prevent the default behaviour of the form that is to refresh the page when the form is submitted
+   setFormData(form)
+   console.log(form);
+   
     
     navigate('/resume')
 })

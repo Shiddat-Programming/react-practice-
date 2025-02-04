@@ -5,28 +5,38 @@ import ResumeForm from './ResumeForm'
 import Resume from './Resume'
 
 import { BrowserRouter as Router , Routes, Route } from 'react-router-dom'
+import ResumeProvider from './ResumeProvider'
+import About from './About'
 
 
 
 const App = () => {
 
-  const [formData , setFormData] = useState({})
 
-  console.log(formData);
+
+
+
   
   
 
   return (
     <div>
+
+
+      <ResumeProvider>   
       <Router>
          <Routes>
-           <Route  path='/'   element={ <HomePage/>}     />
-           <Route  path='/form'   element={ <ResumeForm setFormData={setFormData} />}     />
-           <Route  path='/resume'   element={ <Resume formData={formData}/>}     />
+           <Route  path='/'  element={ <HomePage />}     />
+           <Route  path='/form'   element={ <ResumeForm/> } />   
+           <Route  path='/resume'   element={ <Resume />}     />
+          
+
          </Routes>
-         
+
+         <About/>
 
       </Router>
+      </ResumeProvider>
 
    
 
